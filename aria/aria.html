@@ -9070,8 +9070,8 @@
         <p>For the popup element to be keyboard accessible, Authors SHOULD ensure that the element that can trigger the popup is focusable, that there is a keyboard mechanism for opening the popup, and that the popup element manages focus of all its descendants as described in <a href="#managingfocus">Managing Focus</a>. </p>
         <p> The <code>aria-haspopup</code> property is an enumerated type.
         <a>User agents</a> MUST treat any value of <code>aria-haspopup</code> that is not included in the list of allowed values, including an empty string,  as if the value <code>false</code> had been provided.
-        Assistive technologies SHOULD NOT expose the <code>aria-haspopup</code> property if it has a value of <code>false</code>. 
         To provide backward compatibility with ARIA 1.0 content, user agents MUST treat an <code>aria-haspopup</code> value of <code>true</code> as equivalent to a value of <code>menu</code>. </p>
+        <p> Assistive technologies SHOULD NOT expose the <code>aria-haspopup</code> property if it has a value of <code>false</code>. </p>
         <p class="note">A <rref>tooltip</rref> is not considered to be a popup in this context.</p>
 			</div>
 			<table class="property-features">
