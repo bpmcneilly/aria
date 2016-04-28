@@ -9065,9 +9065,14 @@
 		<div class="property" id="aria-haspopup">
 			<pdef>aria-haspopup</pdef>
 			<div class="property-description">
-				<p>Indicates whether an <a>element</a> can trigger visibility of a popup element, such as a  menu, and the type of that popup.</p>
-				<p>A popup usually appears as a group of items that are on top of other content.</p>
-        <p class="note">Tooltips are not considered popups in this context.</p>
+				<p>[ARIA 1.1] Indicates the availability and type of interactive popup element, such as menu or dialog,  that can be triggered by an <a>element</a>. </p>
+				<p>A popup element usually appears as a block of content that is on top of other content. Authors MUST ensure that the role of the element that serves as the container for the popup content is <rref>menu</rref>, <rref>listbox</rref>, <rref>tree</rref>, <rref>grid</rref>, or <rref>dialog</rref> and that the value of <code>aria-haspopup</code> matches the role of the popup container. </p>
+        <p>For the popup element to be keyboard accessible, Authors SHOULD ensure that the element that can trigger the popup is focusable, that there is a keyboard mechanism for opening the popup, and that the popup element manages focus of all its descendants as described in <a href="#managingfocus">Managing Focus</a>. </p>
+        <p> The <code>aria-haspopup</code> property is an enumerated type.
+        <a>User agents</a> MUST treat any value of <code>aria-haspopup</code> that is not included in the list of allowed values, including an empty string,  as if the value <code>false</code> had been provided.
+        User agents and assistive technologies MUST NOT expose the <code>aria-haspopup</code> property if it has a value of <code>false</code>. 
+        To provide backward compatibility with ARIA 1.0 content, user agents MUST treat an <code>aria-haspopup</code> value of <code>true</code> as equivalent to a value of <code>menu</code>. </p>
+        <p class="note">A <rref>tooltip</rref> is not considered to be a popup in this context.</p>
 			</div>
 			<table class="property-features">
 				<caption>Characteristics:</caption>
@@ -9097,7 +9102,7 @@
 					</tr>
 					<tr>
 						<th class="property-value-head" scope="row">Value:</th>
-						<td class="property-value"><a href="#valuetype_true-false">true/false</a></td>
+						<td class="property-value"><a href="#valuetype_token">token</a></td>
 					</tr>
 				</tbody>
 			</table>
@@ -9116,10 +9121,30 @@
 					</tr>
 					<tr>
 						<th class="value-name" scope="row">true</th>
-						<td class="value-description">Indicates the object has a popup, either as a descendant or referenced by <pref>aria-owns</pref>.</td>
+						<td class="value-description">Indicates the object can pop up a <rref>menu</rref>. </td>
 					</tr>
-				</tbody>
-			</table>
+          <tr>
+            <th class="value-name" scope="row">menu</th>
+            <td class="value-description">Indicates the object can pop up a <rref>menu</rref>. </td>
+          </tr>
+          <tr>
+            <th class="value-name" scope="row">listbox</th>
+            <td class="value-description">Indicates the object can pop up a <rref>listbox</rref>. </td>
+          </tr>
+          <tr>
+            <th class="value-name" scope="row">tree</th>
+            <td class="value-description">Indicates the object can pop up a <rref>tree</rref>. </td>
+          </tr>
+          <tr>
+            <th class="value-name" scope="row">grid</th>
+            <td class="value-description">Indicates the object can pop up a <rref>grid</rref>. </td>
+          </tr>
+          <tr>
+            <th class="value-name" scope="row">dialog</th>
+            <td class="value-description">Indicates the object can pop up a <rref>dialog</rref>. </td>
+          </tr>
+        </tbody>
+      </table>
 		</div>
 		<div class="state" id="aria-hidden">
 			<sdef>aria-hidden</sdef>
